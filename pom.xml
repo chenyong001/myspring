@@ -3,8 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.6.RELEASE</version>
+    </parent>
     <groupId>my.spring</groupId>
     <artifactId>myspring</artifactId>
     <version>1.0.1</version>
@@ -23,7 +26,7 @@
     </modules>
     <dependencyManagement>
         <dependencies>
-<!--            &lt;!&ndash; Web 依赖 &ndash;&gt;-->
+            <!-- Web 依赖 -->
 <!--            <dependency>-->
 <!--                <groupId>org.springframework.boot</groupId>-->
 <!--                <artifactId>spring-boot-starter-web</artifactId>-->
@@ -44,7 +47,7 @@
 <!--                <scope>test</scope>-->
 <!--                <version>${springboot.version}</version>-->
 <!--            </dependency>-->
-            <!--devtools热部署-->
+<!--&lt;!&ndash;            devtools热部署&ndash;&gt;-->
 <!--            <dependency>-->
 <!--                <groupId>org.springframework.boot</groupId>-->
 <!--                <artifactId>spring-boot-devtools</artifactId>-->
@@ -58,6 +61,13 @@
 <!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>central-repos1</id>
+            <name>Central Repository 2</name>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+    </repositories>
 
 
 </project>
