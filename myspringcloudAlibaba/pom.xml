@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.cy</groupId>
+        <artifactId>myspring</artifactId>
+        <version>1.0.1</version>
+    </parent>
+    <groupId>com.cy.myspringcloudAlibaba</groupId>
+    <artifactId>myspringcloudAlibaba</artifactId>
+    <packaging>pom</packaging>
+
+
+    <modules>
+        <module>myspringcloud-nacos</module>
+        <module>myspringcloud-lb</module>
+        <module>myspringcloud-feign</module>
+        <module>myspringcloud-sentinel</module>
+        <module>myspringcloud-sentinel-cloud</module>
+    </modules>
+
+</project>

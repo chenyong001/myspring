@@ -1,1 +1,1 @@
-# myspring
+## 1、thymeleaf默认访问 templates/index.html
