@@ -17,6 +17,8 @@
         <module>myspringcloud-feign</module>
         <module>myspringcloud-sentinel</module>
         <module>myspringcloud-sentinel-cloud</module>
+        <module>myspringcloud-seata-provider</module>
+        <module>myspringcloud-seata-consumer</module>
     </modules>
 
 </project>

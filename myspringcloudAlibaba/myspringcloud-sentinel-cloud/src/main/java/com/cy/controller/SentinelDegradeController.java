@@ -1,4 +1,4 @@
-package com.tansci.controller;
+package com.cy.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;

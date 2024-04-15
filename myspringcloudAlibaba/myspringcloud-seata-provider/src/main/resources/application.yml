@@ -1,0 +1,82 @@
+server:
+  port: 8031
+#spring:
+#  profiles:
+#    active: dev
+
+spring:
+  application:
+    name: seata-provider-cloud-service
+  cloud:
+    nacos:
+      server-addr:  ${NACOS-HOST:101.43.34.244}:${NACOS-PORT:8848}
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+
+  #      server-addr:  ${NACOS-HOST:127.0.0.1}:${NACOS-PORT:8848}
+#spring:
+#  cloud:
+#    sentinel:
+#      transport:
+##        dashboard: ${NACOS-HOST:101.43.34.244}:8858
+#        dashboard: ${NACOS-HOST:127.0.0.1}:7091
+
+
+  #Druid 连接池通用配置
+  datasource:
+    url: jdbc:mysql://${MYSQL-HOST:101.43.34.244}:${MYSQL-PORT:3306}/${MYSQL-DB:provider}?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&useSSL=false
+    username: root
+    password: root123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 下面为连接池的补充设置，应用到上面所有数据源中
+      # 初始化大小，最小，最大
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      # sql 校验
+      validation-query: select count(1) from sys.objects Where type='U' And type_desc='USER_TABLE'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      max-pool-prepared-statement-per-connection-size: 20
+      filters: stat # wall 若开启 wall，会把 if 中的 and 判断为注入进行拦截
+      use-global-data-source-stat: true
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+
+# seata 配置
+seata:
+  enable: true
+  application-id: seata-provider-service
+  tx-service-group: default_tx_group
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server # seata 服务名
+      # 非本地请修改具体的地址
+      server-addr: ${NACOS-HOST:101.43.34.244}:${NACOS-PORT:8848}
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+  config:
+    type: nacos
+    nacos:
+      # nacos ip地址
+      server-addr: ${NACOS-HOST:101.43.34.244}:${NACOS-PORT:8848}
+      group: SEATA_GROUP
+      username: nacos
+      password: nacos
+      data-id: "seataServer.properties"

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: seata-consumer-cloud-service
+#
+#  cloud:
+#    nacos:
+#      server-addr: 127.0.0.1:8848
+#      username: nacos
+#      password: nacos
+#      config:
+#        namespace: 960b83f5-0cbd-41e3-8f65-c6f19f75f6ed
+##        group: tansci-cloud
+#
+##        自定义配置文件
+#        shared-configs:
+#          - data-id: customservice.properties
+#            group: tansci-cloud
+#            refresh: true
+#
+##        修改配置文件默认支持的格式.properties,只支持默认的配置文件和profile
+##        file-extension: yaml
+##        默认读取服务名.properties,列如test2service.properties
+##
+##namespace==>group==>dataid
+##环境==》项目==》工程
+#
+#

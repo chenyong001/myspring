@@ -1,4 +1,4 @@
-package com.tansci.controller;
+package com.cy.controller;
 
 import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
