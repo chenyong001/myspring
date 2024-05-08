@@ -5,19 +5,10 @@
         <groupId>com.cy</groupId>
         <artifactId>myspring</artifactId>
         <version>1.0.1</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
-    <groupId>com.cy.myspringboot</groupId>
-    <artifactId>myspringboot</artifactId>
-    <packaging>pom</packaging>
-
-
-    <modules>
-        <module>springboot-base</module>
-        <module>springboot-web-thymeleaf</module>
-        <module>springboot-ioc-aop</module>
-        <module>springboot-transaction</module>
-        <module>springboot-validation</module>
-
-    </modules>
-
+    <groupId>org.example</groupId>
+    <artifactId>springboot-test1</artifactId>
+    <name>Archetype - springboot-test1</name>
+    <url>http://maven.apache.org</url>
 </project>

@@ -23,4 +23,11 @@ public class FrontController {
     public User getUser(@RequestParam(required = true) String index) {
         return userService.getUser(index);
     }
+
+    //            3、新建工程，实现接口满足以下条件：
+//    通过GET请求localhost:8083/getValue?key=XXX时，接口返回应用配置项中提前配置的各个key对应的值。
+//    输入配置以外的key抛异常，配置项中有 key为A、B、C，对应的值为1、2、3。
+//    接口增加校验，限制key只能传配置项中内容。
+
+
 }

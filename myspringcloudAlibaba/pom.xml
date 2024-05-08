@@ -19,6 +19,7 @@
         <module>myspringcloud-sentinel-cloud</module>
         <module>myspringcloud-seata-provider</module>
         <module>myspringcloud-seata-consumer</module>
+        <module>myspringcloud-gateway</module>
     </modules>
 
 </project>
