@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: nacos-service-config
   cloud:
     nacos:
       #      server-addr: 127.0.0.1:8848
@@ -8,13 +10,21 @@ spring:
       config:
         #        namespace: dev
         namespace: 960b83f5-0cbd-41e3-8f65-c6f19f75f6ed
+#        组：项目
         group: tansci-cloud
 
-        #        自定义配置文件
+        #        自定义配置文件、共享配置文件
         shared-configs:
-          - data-id: customservice.properties
+          - data-id: share.properties
             group: tansci-cloud
             refresh: true
+        file-extension: yml
+        extension-configs:
+          - data-id: ext.properties
+            group: tansci-cloud
+            refresh: true
+  profiles:
+    active: dev
 
 #        修改配置文件默认支持的格式.properties,只支持默认的配置文件和profile
 #        file-extension: yaml
@@ -23,4 +33,20 @@ spring:
 #namespace==>group==>dataid
 #环境==》项目==》工程
 
+
+#
+#  3. 加载顺序
+#  bootstrap.yml / bootstrap.yaml：首先加载，用于配置应用的启动环境。
+#  Nacos 配置中心的配置文件：
+#  先加载 共享配置文件 (shared-configs)
+#  然后是 扩展配置文件 (extension-configs)
+#  最后是 项目应用名配置文件 (${spring.application.name}.yaml / .properties)
+#  application.yml / application.yaml：在 Nacos 配置加载之后。
+#  4. 优先级
+#  项目应用名配置文件：具有最高优先级。
+#  扩展配置文件：次之，覆盖共享配置。
+#  共享配置文件：优先级低于扩展配置。
+#  本地 application.yml / application.yaml：优先级低于所有从 Nacos 加载的配置。
+#  本地 bootstrap.yml / bootstrap.yaml：优先级最低。
+#  相同的配置，优先级高的会覆盖优先级低的，bootstrap是作为spring cloud的上下文配置加载的，一般配置nacos和config的注册中心数据，不配置其他数据，配置了其他数据也可能会被覆盖，而nacos和config相关数据则不会被覆盖。
 
