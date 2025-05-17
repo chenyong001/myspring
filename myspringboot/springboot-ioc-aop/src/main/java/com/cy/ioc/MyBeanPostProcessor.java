@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-       if(beanName.equals("user")){
-           System.out.println("7、postProcessBeforeInitialization方法执行了");
+       if(beanName.equalsIgnoreCase("LifeCycle")){
+           System.out.println("5.1、postProcessBeforeInitialization方法执行了");
        }
 
         return bean;
@@ -18,8 +18,10 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if(beanName.equals("user")){
-            System.out.println("10、postProcessAfterInitialization方法执行了");
+        if(beanName.equalsIgnoreCase("LifeCycle")){
+            System.out.println("8.1、postProcessAfterInitialization方法执行了");
+            System.out.println("aop是ioc的一个扩展功能，在beanpostProcessor的后置方法中进行实现");
+
         }
         return bean;
     }

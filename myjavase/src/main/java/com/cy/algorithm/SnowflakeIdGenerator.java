@@ -1,4 +1,4 @@
-package com.cy.designModel;
+package com.cy.algorithm;
 
 public class SnowflakeIdGenerator {
     private final long startTimestamp = 1640995200000L; // 设定算法开始时间
